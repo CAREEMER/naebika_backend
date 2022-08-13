@@ -2,10 +2,15 @@ from pydantic import BaseSettings
 
 
 class Config(BaseSettings):
-    HOST: str = "localhost"
+    HOST: str = "0.0.0.0"
     PORT: int = 8000
     ENV: str = "local"
-    DATABASE_URL: str = "postgresql+asyncpg://sample_user:sample_user@localhost:5432/sample_user"
+    DATABASE_URL: str
+    CLIENT_SECRET: str
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
 
 
 app_config = Config()
