@@ -1,13 +1,14 @@
-from sqlmodel import Field, SQLModel
 import uuid as uuid_pkg
+
+from sqlmodel import Field, SQLModel
 
 
 class UserBase(SQLModel):
     id: str = Field(default=None, index=True, primary_key=True)
     bdate: str
+    photo_100: str
     photo_200: str
     photo_max_orig: str
-    photo_100: str
     first_name: str
     last_name: str
 
